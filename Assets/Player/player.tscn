@@ -1,0 +1,117 @@
+[gd_scene load_steps=10 format=3 uid="uid://cdk6hwb4hi2wc"]
+
+[ext_resource type="Script" path="res://Assets/Player/player.gd" id="1_2f8j2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3rsb5"]
+radius = 0.3
+
+[sub_resource type="Animation" id="Animation_c4ghl"]
+resource_name = "CrouchToCrawl"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.9, 0), Vector3(0, 0.4, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dseq7"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.7, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6x0wg"]
+resource_name = "StandingToCrawl"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.7, 0), Vector3(0, 0.4, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_12dml"]
+resource_name = "StandingToCrouch"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.7, 0), Vector3(0, 0.9, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ol5b"]
+_data = {
+"CrouchToCrawl": SubResource("Animation_c4ghl"),
+"RESET": SubResource("Animation_dseq7"),
+"StandingToCrawl": SubResource("Animation_6x0wg"),
+"StandingToCrouch": SubResource("Animation_12dml")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_12lhw"]
+radius = 0.259934
+height = 1.10398
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2reqx"]
+radius = 0.2
+height = 1.5
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_2f8j2")
+
+[node name="StShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_3rsb5")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+fov = 80.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7ol5b")
+}
+
+[node name="CrouchShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.542014, 0)
+shape = SubResource("CapsuleShape3D_12lhw")
+disabled = true
+
+[node name="CrawlShape2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.23743, 0.471614)
+shape = SubResource("CapsuleShape3D_2reqx")
+disabled = true
+
+[node name="SprintTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="SprintTimer" to="." method="_on_sprint_timer_timeout"]
