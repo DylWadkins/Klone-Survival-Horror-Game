@@ -8,8 +8,8 @@ extends CharacterBody3D
 @onready var sprint_timer = $SprintTimer
 
 # Flashlight Variables
-@onready var flashlight = $flashlight
-@onready var flashlight_light = $flashlight/flashlight__0/SpotLight
+@onready var flashlight = $FlashlightPivot
+@onready var flashlight_light = $FlashlightPivot/MeshModel/LightBeam
 @export_range(1,30,1) var flashlightfollowspeed : float = 15
 
 # General Variables
@@ -39,7 +39,7 @@ var trueSpeed = walkingspeed
 
 var jumping : bool
 
-# player hit signl
+# Player hit signal
 signal player_hit
 
 var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -50,6 +50,7 @@ var walk_vel : Vector3 # Walking velocity
 var grav_vel : Vector3 # Gravity velocity 
 var jump_vel : Vector3 # Jumping velocity
 
+@onready var head : Node3D = $Head
 @onready var camera : Camera3D = $Head/Camera
 
 func _ready() -> void:
@@ -68,8 +69,9 @@ func _physics_process(delta : float) -> void:
 	
 	#Headbob
 	
-	#t_bob += delta * velocity.length() * float(is_on_floor())
-	#camera.transform.origin = _headbob(t_bob)
+	if (!isCrouching && !isCrawling):
+		t_bob += delta * velocity.length() * float(is_on_floor())
+		camera.transform.origin = _headbob(t_bob)
 	
 	#FOV 
 
@@ -78,12 +80,11 @@ func _physics_process(delta : float) -> void:
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
 	
+	# Lag flashlight movement with camera
+	flashlight.rotation = lerp(flashlight.rotation, head.rotation, delta * flashlightfollowspeed)
 	
 	if Input.is_action_just_pressed("flashlight"):
-		if flashlight_light.visible == true:
-			flashlight_light.visible = false
-		else:
-			flashlight_light.visible = true
+		flashlight_light.visible = !flashlight_light.visible
 	
 	if Input.is_action_just_pressed("crouch"):
 		if isCrouching == false:
@@ -120,12 +121,12 @@ func capture_mouse(capture : bool) -> void:
 
 func _aim(event : InputEvent) -> void:
 	var mouse_axis : Vector2 = event.relative if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED else Vector2.ZERO
-	camera.rotation.y -= mouse_axis.x * mouse_sens * .001
-	camera.rotation.x = clamp(camera.rotation.x - mouse_axis.y * mouse_sens * .001, -1.5, 1.5)
+	head.rotation.y -= mouse_axis.x * mouse_sens * .001
+	head.rotation.x = clamp(head.rotation.x - mouse_axis.y * mouse_sens * .001, -1.5, 1.5)
 
 func _walk(delta : float) -> Vector3:
 	if input_dir:
-		var camera_dir : Vector3 = camera.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)
+		var camera_dir : Vector3 = head.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)
 		walk_vel = walk_vel.move_toward(Vector3(camera_dir.x, 0, camera_dir.z).normalized() * trueSpeed, acceleration * delta)
 	else:
 		walk_vel = walk_vel.move_toward(Vector3.ZERO, deceleration * delta)
@@ -183,16 +184,16 @@ func changeCollisionShapeTo(shape):
 		"crouching":
 			#Disabled == false is enabled!
 			$CrouchShape.disabled = false
-			$CrawlShape2.disabled = true
+			$CrawlShape.disabled = true
 			$StShape.disabled = true
 		"standing":
 			#Disabled == false is enabled!
 			$StShape.disabled = false
-			$CrawlShape2.disabled = true
+			$CrawlShape.disabled = true
 			$CrouchShape.disabled = true
 		"crawling":
 			#Disabled == false is enabled!
-			$CrawlShape2.disabled = false
+			$CrawlShape.disabled = false
 			$StShape.disabled = true
 			$CrouchShape.disabled = true
 

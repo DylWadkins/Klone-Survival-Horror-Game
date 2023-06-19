@@ -6,9 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dawfjlapefyv1" path="res://Dylan/Flashlight/textures/Scene_-_Root_emissive.png" id="4_6yn45"]
 [ext_resource type="Texture2D" uid="uid://fyomgcwh5pkv" path="res://Dylan/Flashlight/textures/Scene_-_Root_normal.png" id="5_hl5fn"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3rsb5"]
-radius = 0.3
-
 [sub_resource type="Animation" id="Animation_c4ghl"]
 resource_name = "CrouchToCrawl"
 length = 0.2
@@ -24,6 +21,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, -0.8, 0), Vector3(0, -1.25, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlashlightPivot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.8, 0), Vector3(0, 0.35, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_dseq7"]
 resource_name = "RESET"
@@ -38,6 +47,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlashlightPivot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.6, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_6x0wg"]
@@ -55,6 +76,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, -1.25, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlashlightPivot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.6, 0), Vector3(0, 0.35, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_12dml"]
 resource_name = "StandingToCrouch"
@@ -71,6 +104,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, -0.8, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlashlightPivot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.6, 0), Vector3(0, 0.8, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7ol5b"]
 _data = {
@@ -79,6 +124,9 @@ _data = {
 "StandingToCrawl": SubResource("Animation_6x0wg"),
 "StandingToCrouch": SubResource("Animation_12dml")
 }
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3rsb5"]
+radius = 0.3
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_12lhw"]
 radius = 0.259934
@@ -139,21 +187,21 @@ shadow_mesh = SubResource("ArrayMesh_o50ld")
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_2f8j2")
 
-[node name="StShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_3rsb5")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_7ol5b")
 }
+
+[node name="StShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00326777, 0.997973, 0.000128388)
+shape = SubResource("CapsuleShape3D_3rsb5")
 
 [node name="CrouchShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.542014, 0)
 shape = SubResource("CapsuleShape3D_12lhw")
 disabled = true
 
-[node name="CrawlShape2" type="CollisionShape3D" parent="."]
+[node name="CrawlShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.23743, 0.471614)
 shape = SubResource("CapsuleShape3D_2reqx")
 disabled = true
@@ -162,27 +210,32 @@ disabled = true
 wait_time = 5.0
 one_shot = true
 
-[node name="flashlight" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.321917, 1.60478, -0.0366138)
-visible = false
+[node name="FlashlightPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
-[node name="flashlight__0" type="MeshInstance3D" parent="flashlight"]
-transform = Transform3D(-1.31076e-09, -0.0299868, 0.000889987, 0.03, -1.31134e-09, 0, 3.89026e-11, 0.000889987, 0.0299868, -0.00189996, 0.00606441, -2.86102e-05)
-visible = false
+[node name="MeshModel" type="MeshInstance3D" parent="FlashlightPivot"]
+transform = Transform3D(-3.89025e-11, -0.000889986, -0.0299868, 0.03, -1.31134e-09, 0, -1.31076e-09, -0.0299868, 0.000889986, 0.322, 0, -0.037)
 mesh = SubResource("ArrayMesh_jqxlt")
 skeleton = NodePath("")
 
-[node name="SpotLight" type="SpotLight3D" parent="flashlight/flashlight__0"]
-transform = Transform3D(33.3333, -1.98952e-13, -2.04636e-12, 1.02318e-12, -1.43051e-06, -33.3333, 7.10543e-15, 33.3333, -1.43051e-06, 0.0224075, 17.2733, -0.00590706)
-visible = false
+[node name="LightBeam" type="SpotLight3D" parent="FlashlightPivot/MeshModel"]
+transform = Transform3D(1, -2.13163e-16, 9.31764e-24, 0, -4.37114e-08, -1, 2.13163e-16, 1, -4.37114e-08, 0.105106, 17.2733, -0.00590897)
+light_color = Color(1, 1, 0.972549, 1)
+light_energy = 2.778
 shadow_enabled = true
 spot_range = 10.0
-spot_angle = 15.0
+spot_angle = 41.0
+spot_angle_attenuation = 2.37841
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67014, 0)
 
 [node name="Camera" type="Camera3D" parent="Head"]
 fov = 80.0
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.000545025, 3.06731e-09)
+visible = false
+target_position = Vector3(0, -2.923, 0)
 
 [connection signal="timeout" from="SprintTimer" to="." method="_on_sprint_timer_timeout"]
