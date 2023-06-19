@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvsb07w43dt08"]
+
+[ext_resource type="PackedScene" uid="uid://cm4le2kscrjx4" path="res://Trees/models/Cabin/Cabañas.dae" id="1_j6nr6"]
+
+[node name="Cabañas" instance=ExtResource("1_j6nr6")]

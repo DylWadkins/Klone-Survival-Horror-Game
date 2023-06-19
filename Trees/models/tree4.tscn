@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://x4nycohqde73"]
 
-[ext_resource type="PackedScene" uid="uid://b1qh1mfbgobps" path="res://Trees/models/tree21.fbx" id="1_wqv0l"]
+[ext_resource type="PackedScene" uid="uid://c4k6hj7vevlj" path="res://Trees/models/tree21.fbx" id="1_wqv0l"]
 [ext_resource type="Texture2D" uid="uid://bvbjwh83rkkn3" path="res://Trees/textures/tree21.png" id="2_2x4c7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkyai"]
