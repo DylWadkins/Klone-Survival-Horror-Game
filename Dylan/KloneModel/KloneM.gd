@@ -49,7 +49,8 @@ func _target_in_range():
 
 # Function to determine if player is still in range when an attack occurs, if so calls the hit function in player.gd
 func _hit_finished():
+	print ("hit finished")
 	if global_position.distance_to(player.global_position) < ATTACK_RANGE + 1.0:
 		var dir = global_position.direction_to(player.global_position)
-		player._hit(dir)
+		player.hit(dir)
 

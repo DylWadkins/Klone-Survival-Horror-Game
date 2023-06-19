@@ -1,13 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://bt00ec562nujh"]
+[gd_scene load_steps=11 format=3 uid="uid://byt660d3qtlx5"]
 
-[ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Assets/Player/player.tscn" id="1_5o61w"]
-[ext_resource type="Shader" path="res://Dylan/Scenes/SkyShader.gdshader" id="1_agxjd"]
-[ext_resource type="Script" path="res://Dylan/Scenes/world.gd" id="1_audhn"]
-[ext_resource type="Texture2D" uid="uid://b01vv6qc3japu" path="res://Assets/Textures/DarkPrototypeTexture.png" id="2_y0frc"]
-[ext_resource type="PackedScene" uid="uid://bch7l4yk3ldkp" path="res://Dylan/KloneModel/KloneM.tscn" id="5_3clbh"]
+[ext_resource type="Script" path="res://Dylan/Scenes/world.gd" id="1_o4hgd"]
+[ext_resource type="Shader" path="res://Dylan/Scenes/SkyShader.gdshader" id="2_pc1rc"]
+[ext_resource type="Texture2D" uid="uid://b01vv6qc3japu" path="res://Assets/Textures/DarkPrototypeTexture.png" id="3_lvsi7"]
+[ext_resource type="PackedScene" uid="uid://bch7l4yk3ldkp" path="res://Dylan/KloneModel/KloneM.tscn" id="4_ruo5l"]
+[ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Assets/Player/player.tscn" id="5_58r87"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x4m13"]
-shader = ExtResource("1_agxjd")
+shader = ExtResource("2_pc1rc")
 shader_parameter/skyColor = Color(0.027451, 0.0117647, 0.156863, 1)
 shader_parameter/horizonColor = Color(0.0196078, 0.0196078, 0.0666667, 1)
 
@@ -26,14 +26,14 @@ agent_max_climb = 0.3
 agent_max_slope = 60.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p85vg"]
-albedo_texture = ExtResource("2_y0frc")
+albedo_texture = ExtResource("3_lvsi7")
 metallic_specular = 0.0
 roughness = 0.1
-roughness_texture = ExtResource("2_y0frc")
+roughness_texture = ExtResource("3_lvsi7")
 uv1_triplanar = true
 
 [node name="World" type="Node3D"]
-script = ExtResource("1_audhn")
+script = ExtResource("1_o4hgd")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bccp7")
@@ -131,11 +131,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4)
 light_color = Color(0.992157, 0.945098, 0.756863, 1)
 light_energy = 7.009
 
-[node name="Player" parent="." instance=ExtResource("1_5o61w")]
-
-[node name="Klone" parent="." instance=ExtResource("5_3clbh")]
+[node name="Klone" parent="." instance=ExtResource("4_ruo5l")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0.0426754, 4)
 player_path = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("5_58r87")]
+base_fov = 75.0
+fov_change = 1.5
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

@@ -1,17 +1,37 @@
 extends CharacterBody3D
-
+## Speed Variables
 @export_range(1, 35, 1) var speed : float = 4 # m/s
 @export_range(1, 5, 1) var walkingspeed : float = 4 # m/s
 @export_range(0.1, 3.5, 0.1) var crouchingspeed : float = 2 # m/s
 @export_range(0.1, 2.5, 0.1) var crawlingspeed : float = 1 # m/s
 @export_range(0.1, 10,  0.1) var sprintspeed : float = 6 # m/s
+@onready var sprint_timer = $SprintTimer
+
+# Flashlight Variables
+@onready var flashlight = $flashlight
+@onready var flashlight_light = $flashlight/flashlight__0/SpotLight
+@export_range(1,30,1) var flashlightfollowspeed : float = 15
+
+# General Variables
+
 @export_range(10, 400, 1) var acceleration : float = 100 # m/s^2
 @export_range(10, 400, 1) var deceleration : float = 100 # m/s^2
 @export_range(1,10,1)  var knockback : float = 8.0
-@export_range(0.1, 3.0, 0.1) var jump_height : float = 1 # m
-@export_range(0.1, 3.0, 0.1) var mouse_sens : float = 1
 
-@onready var sprint_timer = $SprintTimer
+@export_range(0.1, 3.0, 0.1) var jump_height : float = 1 # m
+@export_range(0.1, 3.0, 0.1) var mouse_sens : float = 1.5
+
+# FOV Variables
+
+@export_range(1,170,1) var base_fov = 80.0
+@export_range(0.5,20,0.5)  var fov_change = 1.0
+
+# Headbob Variables
+
+@export_range (1,10,1) var bob_freq = 2.5
+@export_range (0.01,1,0.01) var bob_amp = 0.08
+@onready var t_bob = 0.0
+
 
 var isCrouching = false
 var isCrawling = false
@@ -30,7 +50,7 @@ var walk_vel : Vector3 # Walking velocity
 var grav_vel : Vector3 # Gravity velocity 
 var jump_vel : Vector3 # Jumping velocity
 
-@onready var camera : Camera3D = $Camera
+@onready var camera : Camera3D = $Head/Camera
 
 func _ready() -> void:
 	capture_mouse(true)
@@ -40,9 +60,30 @@ func _input(event : InputEvent) -> void:
 	if event is InputEventMouseMotion: _aim(event)
 	if Input.is_action_just_pressed("jump"): jumping = true
 	if Input.is_action_just_pressed("exit"): get_tree().quit()
+	
+	
 
 func _physics_process(delta : float) -> void:
 	velocity = _walk(delta) + _gravity(delta) + _jump(delta)
+	
+	#Headbob
+	
+	#t_bob += delta * velocity.length() * float(is_on_floor())
+	#camera.transform.origin = _headbob(t_bob)
+	
+	#FOV 
+
+	var velocity_clamped = clamp(velocity.length(), 0.5, sprintspeed * 2)
+	var target_fov = base_fov + fov_change * velocity_clamped
+	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
+	
+	
+	
+	if Input.is_action_just_pressed("flashlight"):
+		if flashlight_light.visible == true:
+			flashlight_light.visible = false
+		else:
+			flashlight_light.visible = true
 	
 	if Input.is_action_just_pressed("crouch"):
 		if isCrouching == false:
@@ -67,6 +108,7 @@ func _physics_process(delta : float) -> void:
 	elif Input.is_action_just_released("sprint") and trueSpeed == sprintspeed:
 		trueSpeed = walkingspeed
 		print(trueSpeed)
+		
 
 	move_and_slide()
 
@@ -155,6 +197,13 @@ func changeCollisionShapeTo(shape):
 			$CrouchShape.disabled = true
 
 # Emits the player hit signal causing the screen to flash red, further implentation for actual damage needed, health system?
-func _hit(dir):
+func hit(dir):
 	emit_signal("player_hit")
 	velocity += dir * knockback
+
+
+func _headbob(time) -> Vector3:
+	var pos = Vector3.ZERO
+	pos.y = sin(time * bob_freq) * bob_amp
+	pos.x = cos(time * bob_freq / 2) * bob_amp
+	return pos
