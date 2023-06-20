@@ -1,10 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://cdk6hwb4hi2wc"]
+[gd_scene load_steps=23 format=3 uid="uid://cdk6hwb4hi2wc"]
 
 [ext_resource type="Script" path="res://Assets/Player/player.gd" id="1_2f8j2"]
 [ext_resource type="Texture2D" uid="uid://dyi6smq1qov8m" path="res://Dylan/Flashlight/textures/Scene_-_Root_baseColor.png" id="2_ycb7c"]
 [ext_resource type="Texture2D" uid="uid://wmth6pe4f8ex" path="res://Dylan/Flashlight/textures/Scene_-_Root_metallicRoughness.png" id="3_t4vp8"]
 [ext_resource type="Texture2D" uid="uid://dawfjlapefyv1" path="res://Dylan/Flashlight/textures/Scene_-_Root_emissive.png" id="4_6yn45"]
 [ext_resource type="Texture2D" uid="uid://fyomgcwh5pkv" path="res://Dylan/Flashlight/textures/Scene_-_Root_normal.png" id="5_hl5fn"]
+[ext_resource type="AudioStream" uid="uid://covluyn3ki0rm" path="res://Assets/Audio/Footsteps/dirt-footstep-01.ogg" id="6_uhxse"]
+[ext_resource type="AudioStream" uid="uid://cco6lmus2old4" path="res://Assets/Audio/Footsteps/dirt-footstep-02.ogg" id="7_xfq4a"]
+[ext_resource type="AudioStream" uid="uid://cfug4idxugne4" path="res://Assets/Audio/Footsteps/dirt-footstep-03.ogg" id="8_wu6pi"]
+[ext_resource type="AudioStream" uid="uid://c4jvyt24jj3x4" path="res://Assets/Audio/Footsteps/dirt-footstep-04.ogg" id="9_7ejf8"]
+[ext_resource type="AudioStream" uid="uid://cufdfdvg3dyjp" path="res://Assets/Audio/Footsteps/dirt-footstep-05.ogg" id="10_lkhla"]
 
 [sub_resource type="Animation" id="Animation_c4ghl"]
 resource_name = "CrouchToCrawl"
@@ -184,6 +189,19 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_o50ld")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3d3ir"]
+streams_count = 5
+stream_0/stream = ExtResource("6_uhxse")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7_xfq4a")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("8_wu6pi")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("9_7ejf8")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("10_lkhla")
+stream_4/weight = 1.0
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_2f8j2")
 
@@ -206,8 +224,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2
 shape = SubResource("CapsuleShape3D_2reqx")
 disabled = true
 
-[node name="SprintTimer" type="Timer" parent="."]
-wait_time = 5.0
+[node name="StepTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="FlashlightPivot" type="Node3D" parent="."]
@@ -238,4 +255,6 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.
 visible = false
 target_position = Vector3(0, -2.923, 0)
 
-[connection signal="timeout" from="SprintTimer" to="." method="_on_sprint_timer_timeout"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_3d3ir")
+volume_db = -20.0

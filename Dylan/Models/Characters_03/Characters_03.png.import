@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baruekefj4w0w"
-path.s3tc="res://.godot/imported/Characters_03.png-0c2752267adb076e92be334bf722dc87.s3tc.ctex"
+uid="uid://0dc5qi32oo1d"
+path="res://.godot/imported/Characters_03.png-0c2752267adb076e92be334bf722dc87.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Dylan/Models/Characters_03/Characters_03.png"
-dest_files=["res://.godot/imported/Characters_03.png-0c2752267adb076e92be334bf722dc87.s3tc.ctex"]
+dest_files=["res://.godot/imported/Characters_03.png-0c2752267adb076e92be334bf722dc87.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

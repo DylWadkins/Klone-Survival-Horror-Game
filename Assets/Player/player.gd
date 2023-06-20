@@ -6,12 +6,15 @@ extends CharacterBody3D
 @export_range(0.1, 3.5, 0.1) var crouchingspeed : float = 2 # m/s
 @export_range(0.1, 2.5, 0.1) var crawlingspeed : float = 1 # m/s
 @export_range(0.1, 10,  0.1) var sprintspeed : float = 6 # m/s
-@onready var sprint_timer = $SprintTimer
 
 # Flashlight Variables
 @onready var flashlight = $FlashlightPivot
 @onready var flashlight_light = $FlashlightPivot/MeshModel/LightBeam
 @export_range(1,30,1) var flashlightfollowspeed : float = 15
+
+# Player Audio
+@onready var step_timer = $StepTimer
+@onready var audio_player = $AudioStreamPlayer
 
 # General Variables
 
@@ -83,6 +86,11 @@ func _physics_process(delta : float) -> void:
 	
 	# Lag flashlight movement with camera
 	flashlight.rotation = lerp(flashlight.rotation, head.rotation, delta * flashlightfollowspeed)
+	
+	# Audio Footsteps
+	if (velocity != Vector3.ZERO && abs(sin(t_bob * bob_freq)) > 0.95 && step_timer.time_left <= 0): 
+		audio_player.play()
+		step_timer.start(0.4)
 	
 	if Input.is_action_just_pressed("flashlight"):
 		flashlight_light.visible = !flashlight_light.visible
