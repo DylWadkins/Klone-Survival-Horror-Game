@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnfh0d760abvl"]
+
+[ext_resource type="PackedScene" uid="uid://dq00csj1xbnur" path="res://Dylan/Models/Trees/models/tree03.fbx" id="1_a8wqc"]
+[ext_resource type="Texture2D" uid="uid://dg7emgs8xpw54" path="res://Dylan/Models/Trees/textures/tree03.png" id="2_vp5bb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r2b0v"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("2_vp5bb")
+
+[node name="tree03" instance=ExtResource("1_a8wqc")]
+
+[node name="tree03" parent="RootNode" index="0"]
+material_override = SubResource("StandardMaterial3D_r2b0v")

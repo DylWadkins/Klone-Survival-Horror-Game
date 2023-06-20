@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody3D
 ## Speed Variables
 @export_range(1, 35, 1) var speed : float = 4 # m/s
