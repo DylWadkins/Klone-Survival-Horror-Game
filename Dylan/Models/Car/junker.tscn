@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://3r6guhinaqsr"]
+
+[ext_resource type="Texture2D" uid="uid://btc65qywtcpq6" path="res://Dylan/Models/Car/Car 06/car6.png" id="1_4xhy6"]
+[ext_resource type="ArrayMesh" uid="uid://cbro35hub6ige" path="res://Dylan/Models/Car/Car 06/Car6.obj" id="2_2vifi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdi66"]
+albedo_texture = ExtResource("1_4xhy6")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_mdi66")
+mesh = ExtResource("2_2vifi")

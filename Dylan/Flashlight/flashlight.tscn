@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnslp2k3kveub"]
-
-[ext_resource type="PackedScene" uid="uid://dvqufyekk78sd" path="res://Dylan/Flashlight/scene.gltf" id="1_t6a0o"]
-
-[node name="scene" instance=ExtResource("1_t6a0o")]
-
-[node name="flashlight__0" parent="Sketchfab_model/0888e53071d64ef5a60bd70d70133d73fbx/RootNode/flashlight" index="0"]
-transform = Transform3D(-1.31076e-09, -0.0299868, 0.000889987, 0.03, -1.31134e-09, 0, 3.89026e-11, 0.000889987, 0.0299868, -0.00189996, 0.00606441, -2.86102e-05)

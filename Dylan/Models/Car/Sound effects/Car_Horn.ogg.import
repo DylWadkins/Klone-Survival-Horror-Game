@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://coy68rwbtubpq"
+path="res://.godot/imported/Car_Horn.ogg-668a0882ce3d23a2137c848324f96d5e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Dylan/Models/Car/Sound effects/Car_Horn.ogg"
+dest_files=["res://.godot/imported/Car_Horn.ogg-668a0882ce3d23a2137c848324f96d5e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
