@@ -142,19 +142,16 @@ shadow_mesh = SubResource("ArrayMesh_tgeii")
 resource_name = "Material.002"
 cull_mode = 2
 albedo_texture = ExtResource("11_ob23m")
-roughness = 0.0764706
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fafgr"]
 resource_name = "Material.001"
 cull_mode = 2
 albedo_texture = ExtResource("12_eyj1q")
-roughness = 0.0764706
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1qh7j"]
 resource_name = "Material.003"
 cull_mode = 2
 albedo_texture = ExtResource("13_khc7i")
-roughness = 0.0764706
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xclr3"]
 resource_name = "Cube.014"

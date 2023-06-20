@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://choypv7lyxwpq"
-path="res://.godot/imported/Falling Flat Impact (1).fbx-af1d5a78c2f728b403e195a869f07ee8.scn"
+path="res://.godot/imported/Falling Flat Impact (1).fbx-b5990adc79e10d6b10f25b2527b8db6b.scn"
 
 [deps]
 
-source_file="res://Characters_03/Falling Flat Impact (1).fbx"
-dest_files=["res://.godot/imported/Falling Flat Impact (1).fbx-af1d5a78c2f728b403e195a869f07ee8.scn"]
+source_file="res://Dylan/Models/Characters_03/Falling Flat Impact (1).fbx"
+dest_files=["res://.godot/imported/Falling Flat Impact (1).fbx-b5990adc79e10d6b10f25b2527b8db6b.scn"]
 
 [params]
 
