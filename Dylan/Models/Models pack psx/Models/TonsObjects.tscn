@@ -1,0 +1,103 @@
+[gd_scene load_steps=23 format=3 uid="uid://du3eklkgg6amb"]
+
+[ext_resource type="PackedScene" uid="uid://cgkwfkbsnd6t7" path="res://Dylan/Models/Models pack psx/Models/models.fbx" id="1_jpyfn"]
+[ext_resource type="Texture2D" uid="uid://dd6acscxe47t0" path="res://Dylan/Models/Models pack psx/Texture/Wood_14.jpg" id="2_aifcf"]
+[ext_resource type="Texture2D" uid="uid://bm625fqfbeqhi" path="res://Dylan/Models/Models pack psx/Texture/Concrete.png" id="3_7l6w3"]
+[ext_resource type="Texture2D" uid="uid://dprvlyslb8ghm" path="res://Dylan/Models/Models pack psx/Texture/Wood_12.jpg" id="4_jiva5"]
+[ext_resource type="Texture2D" uid="uid://bgyqs7t1vxlkw" path="res://Dylan/Models/Models pack psx/Texture/Wood_03.jpg" id="5_m6umo"]
+[ext_resource type="Texture2D" uid="uid://co4xooe15xrji" path="res://Dylan/Models/Models pack psx/Texture/Wood_13.jpg" id="6_6dvnk"]
+[ext_resource type="Texture2D" uid="uid://cas1uwxjyxqll" path="res://Dylan/Models/Models pack psx/Texture/Wood_04.jpg" id="7_2t2s4"]
+[ext_resource type="Texture2D" uid="uid://1cnnkothu3qt" path="res://Dylan/Models/Models pack psx/Texture/Plastic_02.jpg" id="8_bbgcl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7r6xn"]
+albedo_texture = ExtResource("2_aifcf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c73kq"]
+albedo_texture = ExtResource("3_7l6w3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5klq"]
+albedo_texture = ExtResource("3_7l6w3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_au0qf"]
+albedo_texture = ExtResource("3_7l6w3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlnfs"]
+albedo_texture = ExtResource("3_7l6w3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jaxl4"]
+albedo_texture = ExtResource("4_jiva5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ybnl"]
+albedo_texture = ExtResource("5_m6umo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2132n"]
+albedo_texture = ExtResource("6_6dvnk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ye42"]
+albedo_texture = ExtResource("7_2t2s4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eqgnh"]
+albedo_texture = ExtResource("8_bbgcl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ommdi"]
+albedo_texture = ExtResource("8_bbgcl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vbvaj"]
+albedo_texture = ExtResource("8_bbgcl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1jk3"]
+albedo_texture = ExtResource("8_bbgcl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdwjo"]
+albedo_texture = ExtResource("8_bbgcl")
+
+[node name="models" instance=ExtResource("1_jpyfn")]
+
+[node name="Cube081" parent="RootNode" index="79"]
+material_override = SubResource("StandardMaterial3D_7r6xn")
+
+[node name="Cube082" parent="RootNode" index="80"]
+material_override = SubResource("StandardMaterial3D_c73kq")
+
+[node name="Cube083" parent="RootNode" index="81"]
+material_override = SubResource("StandardMaterial3D_x5klq")
+
+[node name="Cube085" parent="RootNode" index="82"]
+material_override = SubResource("StandardMaterial3D_au0qf")
+
+[node name="Cube086" parent="RootNode" index="83"]
+material_override = SubResource("StandardMaterial3D_mlnfs")
+
+[node name="Cube087" parent="RootNode" index="89"]
+visible = false
+
+[node name="Mesa002" parent="RootNode" index="123"]
+material_override = SubResource("StandardMaterial3D_jaxl4")
+
+[node name="Mesa004" parent="RootNode" index="132"]
+material_override = SubResource("StandardMaterial3D_4ybnl")
+
+[node name="Mesa005" parent="RootNode" index="133"]
+material_override = SubResource("StandardMaterial3D_2132n")
+
+[node name="Mesa003" parent="RootNode" index="134"]
+material_override = SubResource("StandardMaterial3D_1ye42")
+
+[node name="Cube148" parent="RootNode" index="149"]
+visible = false
+
+[node name="Cube205" parent="RootNode" index="358"]
+material_override = SubResource("StandardMaterial3D_eqgnh")
+
+[node name="Cube204" parent="RootNode" index="359"]
+material_override = SubResource("StandardMaterial3D_ommdi")
+
+[node name="Cube203" parent="RootNode" index="360"]
+material_override = SubResource("StandardMaterial3D_vbvaj")
+
+[node name="Cube202" parent="RootNode" index="361"]
+material_override = SubResource("StandardMaterial3D_w1jk3")
+
+[node name="Cube201" parent="RootNode" index="362"]
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, -26.6931, -1.66149, 18.4277)
+material_override = SubResource("StandardMaterial3D_tdwjo")

@@ -1,0 +1,161 @@
+[gd_scene load_steps=42 format=3 uid="uid://cc3xv7lxq7mgd"]
+
+[ext_resource type="PackedScene" uid="uid://qliqyug6bs07" path="res://Dylan/Models/Survival/Models/Survival.fbx" id="1_234hy"]
+[ext_resource type="Texture2D" uid="uid://bnwgnltw6m220" path="res://Dylan/Models/Survival/Textures/Battery.png" id="2_00jfe"]
+[ext_resource type="Texture2D" uid="uid://dhkun3ad8rsku" path="res://Dylan/Models/Survival/Textures/Lantern.png" id="3_new8b"]
+[ext_resource type="Texture2D" uid="uid://sd2cxatvk0g5" path="res://Dylan/Models/Survival/Textures/Can.png" id="4_ilonw"]
+[ext_resource type="Texture2D" uid="uid://bm02abqhhcosu" path="res://Dylan/Models/Survival/Textures/match.png" id="5_xfup7"]
+[ext_resource type="Texture2D" uid="uid://bbni5fr0knam3" path="res://Dylan/Models/Survival/Textures/zippo.png" id="6_hr0no"]
+[ext_resource type="Texture2D" uid="uid://bjaoxuy5t2p5l" path="res://Dylan/Models/Survival/Textures/Bengal_.png" id="7_e2knh"]
+[ext_resource type="Texture2D" uid="uid://b817u6sslliae" path="res://Dylan/Models/Survival/Textures/Bengal.png" id="8_tgujt"]
+[ext_resource type="Texture2D" uid="uid://dq1y4lestcwk7" path="res://Dylan/Models/Survival/Textures/sleeping_bag.png" id="9_tcvxv"]
+[ext_resource type="Texture2D" uid="uid://cx0p7asv1bh4m" path="res://Dylan/Models/Survival/Textures/sleeping_bag_01.png" id="10_xmxkv"]
+[ext_resource type="Texture2D" uid="uid://chm7pras5a7q8" path="res://Dylan/Models/Survival/Textures/Axe.png" id="11_h0x3j"]
+[ext_resource type="Texture2D" uid="uid://ba4e3bkvsy4dx" path="res://Dylan/Models/Survival/Textures/Torch.png" id="12_p4k4u"]
+[ext_resource type="Texture2D" uid="uid://cfy2w0yeotvcn" path="res://Dylan/Models/Survival/Textures/bonfire.png" id="13_ge3k8"]
+[ext_resource type="Texture2D" uid="uid://bcaeba4ksmqtf" path="res://Dylan/Models/Survival/Textures/Backpack.png" id="14_21kll"]
+[ext_resource type="Texture2D" uid="uid://bsgcowy8v5sa8" path="res://Dylan/Models/Survival/Textures/farol.png" id="15_4g2sc"]
+[ext_resource type="Texture2D" uid="uid://dufwo80ayy8cs" path="res://Dylan/Models/Survival/Textures/Shelter_tent.png" id="16_bgbst"]
+[ext_resource type="Texture2D" uid="uid://ckn4vecds3woh" path="res://Dylan/Models/Survival/Textures/Trunk.png" id="17_x6wc6"]
+[ext_resource type="Texture2D" uid="uid://b7pit58llx70p" path="res://Dylan/Models/Survival/Textures/Can_Soda.png" id="18_7vxqm"]
+[ext_resource type="Texture2D" uid="uid://bd0bklyxd6pqq" path="res://Dylan/Models/Survival/Textures/Trunk_01.png" id="19_1egjw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xu6ww"]
+albedo_texture = ExtResource("2_00jfe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwfir"]
+albedo_texture = ExtResource("3_new8b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eccbp"]
+albedo_texture = ExtResource("4_ilonw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_juaul"]
+albedo_texture = ExtResource("5_xfup7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31j0n"]
+albedo_texture = ExtResource("6_hr0no")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qa18d"]
+albedo_texture = ExtResource("6_hr0no")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g1bgc"]
+albedo_texture = ExtResource("7_e2knh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21l2m"]
+albedo_texture = ExtResource("7_e2knh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gdtl"]
+albedo_texture = ExtResource("8_tgujt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3l1w"]
+albedo_texture = ExtResource("9_tcvxv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_on4ia"]
+albedo_texture = ExtResource("10_xmxkv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0kuim"]
+albedo_texture = ExtResource("11_h0x3j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yw6oa"]
+albedo_texture = ExtResource("12_p4k4u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4o68"]
+albedo_texture = ExtResource("13_ge3k8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m28tn"]
+albedo_texture = ExtResource("14_21kll")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tqnk2"]
+albedo_texture = ExtResource("14_21kll")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akgf7"]
+albedo_texture = ExtResource("15_4g2sc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4rlv"]
+albedo_texture = ExtResource("15_4g2sc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oe8pa"]
+albedo_texture = ExtResource("16_bgbst")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2wka"]
+albedo_texture = ExtResource("17_x6wc6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4yktn"]
+albedo_texture = ExtResource("18_7vxqm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56ovb"]
+albedo_texture = ExtResource("19_1egjw")
+
+[node name="Survival" instance=ExtResource("1_234hy")]
+
+[node name="Battery" parent="RootNode" index="0"]
+material_override = SubResource("StandardMaterial3D_xu6ww")
+
+[node name="Lantern" parent="RootNode" index="1"]
+material_override = SubResource("StandardMaterial3D_qwfir")
+
+[node name="Can" parent="RootNode" index="2"]
+material_override = SubResource("StandardMaterial3D_eccbp")
+
+[node name="match" parent="RootNode" index="3"]
+material_override = SubResource("StandardMaterial3D_juaul")
+
+[node name="zippo" parent="RootNode" index="5"]
+material_override = SubResource("StandardMaterial3D_31j0n")
+
+[node name="zippo_01" parent="RootNode/zippo" index="0"]
+material_override = SubResource("StandardMaterial3D_qa18d")
+
+[node name="Bengal" parent="RootNode" index="6"]
+material_override = SubResource("StandardMaterial3D_g1bgc")
+
+[node name="Bengal_01" parent="RootNode/Bengal" index="0"]
+material_override = SubResource("StandardMaterial3D_21l2m")
+
+[node name="trigger" parent="RootNode/Bengal" index="1"]
+material_override = SubResource("StandardMaterial3D_21l2m")
+
+[node name="Bengal_02" parent="RootNode/Bengal" index="2"]
+material_override = SubResource("StandardMaterial3D_21l2m")
+
+[node name="Begal_ammunition" parent="RootNode" index="7"]
+material_override = SubResource("StandardMaterial3D_8gdtl")
+
+[node name="sleeping_bag" parent="RootNode" index="8"]
+material_override = SubResource("StandardMaterial3D_a3l1w")
+
+[node name="sleeping_bag_01" parent="RootNode" index="9"]
+material_override = SubResource("StandardMaterial3D_on4ia")
+
+[node name="Axe" parent="RootNode" index="12"]
+material_override = SubResource("StandardMaterial3D_0kuim")
+
+[node name="Torch" parent="RootNode" index="15"]
+material_override = SubResource("StandardMaterial3D_yw6oa")
+
+[node name="bonfire" parent="RootNode" index="16"]
+material_override = SubResource("StandardMaterial3D_b4o68")
+
+[node name="Backpack" parent="RootNode" index="19"]
+material_override = SubResource("StandardMaterial3D_m28tn")
+
+[node name="Backpack001" parent="RootNode" index="20"]
+material_override = SubResource("StandardMaterial3D_tqnk2")
+
+[node name="Farol" parent="RootNode" index="24"]
+material_override = SubResource("StandardMaterial3D_akgf7")
+
+[node name="Farol_G" parent="RootNode" index="25"]
+material_override = SubResource("StandardMaterial3D_q4rlv")
+
+[node name="Shelter_tent" parent="RootNode" index="29"]
+material_override = SubResource("StandardMaterial3D_oe8pa")
+
+[node name="Trunk" parent="RootNode" index="30"]
+material_override = SubResource("StandardMaterial3D_w2wka")
+
+[node name="Can_Soda" parent="RootNode" index="31"]
+material_override = SubResource("StandardMaterial3D_4yktn")
+
+[node name="Trunk_01" parent="RootNode" index="34"]
+material_override = SubResource("StandardMaterial3D_56ovb")
