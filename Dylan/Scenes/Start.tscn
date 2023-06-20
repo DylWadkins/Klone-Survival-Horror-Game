@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://dea0eknbu174v"]
+[gd_scene load_steps=84 format=3 uid="uid://dea0eknbu174v"]
 
 [ext_resource type="Texture2D" uid="uid://c6s6tfswof7c6" path="res://Assets/Textures/PSX_NIGHTSKY.hdr" id="1_agel6"]
 [ext_resource type="Texture2D" uid="uid://cta7yb62srexn" path="res://Assets/Textures/grass 7.png" id="2_j2ihg"]
@@ -19,16 +19,17 @@
 [ext_resource type="Texture2D" uid="uid://d1ylsxai4jmht" path="res://Dylan/Models/Trees/models/Cabin/roof_slates_02_diff_1k.jpg" id="13_khc7i"]
 [ext_resource type="Texture2D" uid="uid://dvg8prwb5br37" path="res://Dylan/Scenes/Start_slot3_normal_roughness.png" id="13_uh38a"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="14_30g76"]
-[ext_resource type="Texture2D" uid="uid://dhf8msadmrgop" path="res://Dylan/Scenes/Start_slot0_albedo_bump.png" id="14_gy7nm"]
-[ext_resource type="Texture2D" uid="uid://b2v283k4ibp15" path="res://Dylan/Scenes/Start_slot1_albedo_bump.png" id="15_b8fb2"]
-[ext_resource type="Texture2D" uid="uid://cav1qox014koa" path="res://Dylan/Scenes/Start_slot0_normal_roughness.png" id="16_pim00"]
-[ext_resource type="Texture2D" uid="uid://b5wyq0gqenlgi" path="res://Dylan/Scenes/Start_slot2_albedo_bump.png" id="17_3t4dv"]
+[ext_resource type="Texture2D" uid="uid://dcxn74l5yrb53" path="res://Dylan/Scenes/Start_slot0_albedo_bump.png" id="14_gy7nm"]
+[ext_resource type="Texture2D" uid="uid://70jgmmgnvooj" path="res://Dylan/Scenes/Start_slot1_albedo_bump.png" id="15_b8fb2"]
+[ext_resource type="Texture2D" uid="uid://b1nbstdvgsd2y" path="res://Dylan/Scenes/Start_slot0_normal_roughness.png" id="16_pim00"]
+[ext_resource type="Texture2D" uid="uid://do4kfui2y55u2" path="res://Dylan/Scenes/Start_slot2_albedo_bump.png" id="17_3t4dv"]
 [ext_resource type="Resource" path="res://Dylan/Terrain Data/data.hterrain" id="17_omsd3"]
-[ext_resource type="Texture2D" uid="uid://b3dsqluv13h2v" path="res://Dylan/Scenes/Start_slot1_normal_roughness.png" id="17_q6r6g"]
-[ext_resource type="Texture2D" uid="uid://bwueflananuxh" path="res://Dylan/Scenes/Start_slot2_normal_roughness.png" id="20_pfyp5"]
+[ext_resource type="Texture2D" uid="uid://5uhe65pr2myg" path="res://Dylan/Scenes/Start_slot1_normal_roughness.png" id="17_q6r6g"]
+[ext_resource type="Texture2D" uid="uid://cesmk8y0gdsh7" path="res://Dylan/Scenes/Start_slot2_normal_roughness.png" id="20_pfyp5"]
 [ext_resource type="Texture2D" uid="uid://bsrk5d2ogd87c" path="res://Dylan/Models/Trees/textures/bush02.png" id="24_mwoc7"]
 [ext_resource type="Script" path="res://Dylan/Scenes/Bush.gd" id="25_7wqbh"]
 [ext_resource type="AudioStream" uid="uid://blwnnlk80s6v5" path="res://Dylan/Music-Sounds/bushmovement-6986.ogg" id="26_vmyuq"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Screen Shaders/AccurateCRT.gdshader" id="28_i1u3e"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ixnx6"]
 panorama = ExtResource("1_agel6")
@@ -41,6 +42,10 @@ radiance_size = 1
 background_mode = 2
 sky = SubResource("Sky_pdggr")
 ambient_light_source = 3
+fog_enabled = true
+fog_sky_affect = 0.1
+volumetric_fog_enabled = true
+volumetric_fog_sky_affect = 0.0
 
 [sub_resource type="Resource" id="Resource_67qpq"]
 script = ExtResource("14_30g76")
@@ -537,6 +542,20 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_yrjb0")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r6hro"]
+shader = ExtResource("28_i1u3e")
+shader_parameter/res = Vector2(200, 200)
+shader_parameter/mask_type = 0
+shader_parameter/bloom_type = 0
+shader_parameter/hardScan = -8.0
+shader_parameter/hardPix = -2.5
+shader_parameter/hardBloomScan = -2.0
+shader_parameter/hardBloomPix = -1.5
+shader_parameter/bloomAmount = 16.0
+shader_parameter/warp = Vector2(100, 100)
+shader_parameter/maskDark = 0.5
+shader_parameter/maskLight = 1.5
+
 [node name="World" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -629,23 +648,25 @@ skeleton = NodePath("")
 transform = Transform3D(0.468252, 0, 0.768596, 0, 0.9, 0, -0.768596, 0, 0.468252, -16.1521, -0.00443769, 3.58801)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/Platform/Van"]
-transform = Transform3D(1.11111, 0, 2.98023e-08, 0, 1.11111, 0, -2.98023e-08, 0, 1.11111, 0.942445, 1.22933, 3.14567)
+transform = Transform3D(1, 0, 2.68221e-08, 0, 1, 0, -2.68221e-08, 0, 1, 0.942445, 1.22933, 3.14567)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/Platform/Van"]
-transform = Transform3D(1.11111, 0, 2.98023e-08, 0, 1.11111, 0, -2.98023e-08, 0, 1.11111, -0.876269, 1.13556, 2.97287)
+transform = Transform3D(1, 0, 2.68221e-08, 0, 1, 0, -2.68221e-08, 0, 1, -0.876269, 1.13556, 2.97287)
 light_energy = 0.39
 
 [node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/Platform/Van"]
-transform = Transform3D(-1.11111, 0, -8.9407e-08, 0, 1.11111, 0, 8.9407e-08, 0, -1.11111, 0.842813, 1.14168, 2.80401)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.842813, 1.14168, 2.80401)
 light_energy = 60.0
 spot_range = 15.0
 spot_angle = 15.0
+spot_angle_attenuation = 3.0
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="NavigationRegion3D/Platform/Van"]
-transform = Transform3D(-1.11111, 0, -1.67773e-07, 0, 1.11111, 0, 1.67773e-07, 0, -1.11111, -0.872315, 1.16537, 2.90795)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.872315, 1.16537, 2.90795)
 light_energy = 60.0
 spot_range = 15.0
 spot_angle = 15.0
+spot_angle_attenuation = 3.0
 
 [node name="Cabin" type="StaticBody3D" parent="NavigationRegion3D/Platform"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 12.4843, 2.35216, 0.448915)
@@ -2555,8 +2576,18 @@ stream = ExtResource("26_vmyuq")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_ncjoe")
-volume_db = -7.495
+volume_db = -30.456
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_r6hro")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="body_entered" from="NavigationRegion3D/Platform/Trees/Bush/Area3D" to="NavigationRegion3D/Platform/Trees/Bush/Area3D" method="_on_body_entered"]
 [connection signal="body_entered" from="NavigationRegion3D/Platform/Trees/Bush3/Area3D" to="NavigationRegion3D/Platform/Trees/Bush3/Area3D" method="_on_body_entered"]

@@ -240,8 +240,9 @@ transform = Transform3D(1, -2.13163e-16, 9.31764e-24, 0, -4.37114e-08, -1, 2.131
 light_color = Color(1, 1, 0.972549, 1)
 light_energy = 2.778
 shadow_enabled = true
-spot_range = 10.0
-spot_angle = 41.0
+spot_range = 14.0
+spot_attenuation = 0.517632
+spot_angle = 23.0
 spot_angle_attenuation = 2.37841
 
 [node name="Head" type="Node3D" parent="."]
