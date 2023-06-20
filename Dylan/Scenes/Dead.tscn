@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://mhs4nb7qortu"]
 
 [ext_resource type="PackedScene" uid="uid://b5ax2gh47nin6" path="res://Dylan/Models/Falling Flat Impact (1).fbx" id="1_14gef"]
-[ext_resource type="Texture2D" uid="uid://baruekefj4w0w" path="res://Dylan/Models/Characters_03/Characters_03.png" id="2_0ma80"]
+[ext_resource type="Texture2D" uid="uid://0dc5qi32oo1d" path="res://Dylan/Models/Characters_03/Characters_03.png" id="2_0ma80"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iakeu"]
 albedo_texture = ExtResource("2_0ma80")
