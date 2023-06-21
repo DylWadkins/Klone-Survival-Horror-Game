@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c7ckeuhmke04p"
+path="res://.godot/imported/Car_Hood_Open.ogg-677766649cc89500144dc99da0c5ba31.oggvorbisstr"
+
+[deps]
+
+source_file="res://Share/Dylan/Models/Car/Sound effects/Car_Hood_Open.ogg"
+dest_files=["res://.godot/imported/Car_Hood_Open.ogg-677766649cc89500144dc99da0c5ba31.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

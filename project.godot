@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Skin Walker-fp Sbackup"
-run/main_scene="res://Dylan/Scenes/mainmenu.tscn"
+run/main_scene="res://Assets/Scene_Levels/Start.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://Assets/Audio/default_bus_layout.tres"
 
 [editor_plugins]
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cbro35hub6ige"
+path="res://.godot/imported/Car6.obj-a8472e5f35fc9096bfdea0dd607e17b6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Car6.obj-a8472e5f35fc9096bfdea0dd607e17b6.mesh"]
+
+source_file="res://Share/Dylan/Models/Car/Car 06/Car6.obj"
+dest_files=["res://.godot/imported/Car6.obj-a8472e5f35fc9096bfdea0dd607e17b6.mesh", "res://.godot/imported/Car6.obj-a8472e5f35fc9096bfdea0dd607e17b6.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
