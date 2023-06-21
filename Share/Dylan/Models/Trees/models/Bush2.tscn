@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://x1dheqll4ktc"]
+
+[ext_resource type="PackedScene" uid="uid://bgysh4bbhr38x" path="res://Share/Dylan/Models/Trees/models/bush08.fbx" id="1_5k31e"]
+[ext_resource type="Texture2D" uid="uid://fcb0x3mvss52" path="res://Share/Dylan/Models/Trees/textures/bush08.png" id="2_4x5cl"]
+[ext_resource type="Script" path="res://Share/Dylan/Models/Trees/models/Rustle.gd" id="3_6aht1"]
+[ext_resource type="AudioStream" uid="uid://blwnnlk80s6v5" path="res://Share/Dylan/Music-Sounds/bushmovement.ogg" id="3_jgcwg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgb4t"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("2_4x5cl")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vtcvh"]
+size = Vector3(2.63652, 4.7829, 4.10501)
+
+[node name="bush08" instance=ExtResource("1_5k31e")]
+
+[node name="bush08" parent="RootNode" index="0"]
+material_override = SubResource("StandardMaterial3D_mgb4t")
+
+[node name="Area3D" type="Area3D" parent="RootNode/bush08" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, 0, 0, 0)
+script = ExtResource("3_6aht1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/bush08/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.35309, 0)
+shape = SubResource("BoxShape3D_vtcvh")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="RootNode/bush08/Area3D/CollisionShape3D" index="0"]
+stream = ExtResource("3_jgcwg")
+volume_db = -15.0
+
+[connection signal="body_entered" from="RootNode/bush08/Area3D" to="RootNode/bush08/Area3D" method="_on_body_entered"]
