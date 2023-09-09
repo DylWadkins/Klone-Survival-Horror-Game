@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bw110sbrl7rnh"
+path="res://.godot/imported/Car_Door_Open.ogg-4885307de824cba5f1dc7f4a318e5d9c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Share/Dylan/Models/Car/Sound effects/Car_Door_Open.ogg"
+dest_files=["res://.godot/imported/Car_Door_Open.ogg-4885307de824cba5f1dc7f4a318e5d9c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

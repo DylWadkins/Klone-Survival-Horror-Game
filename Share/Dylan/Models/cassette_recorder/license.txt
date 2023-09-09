@@ -1,0 +1,11 @@
+Model Information:
+* title:	Cassette Recorder
+* source:	https://sketchfab.com/3d-models/cassette-recorder-ce9f02da632641299189f557633cb16d
+* author:	zombitt (https://sketchfab.com/zombitt)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Cassette Recorder" (https://sketchfab.com/3d-models/cassette-recorder-ce9f02da632641299189f557633cb16d) by zombitt (https://sketchfab.com/zombitt) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

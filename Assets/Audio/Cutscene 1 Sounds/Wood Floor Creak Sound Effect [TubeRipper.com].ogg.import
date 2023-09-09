@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b0munkmhjfrdl"
+path="res://.godot/imported/Wood Floor Creak Sound Effect [TubeRipper.com].ogg-cbe0d34141ccb6732235c2ba6a22ad53.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Cutscene 1 Sounds/Wood Floor Creak Sound Effect [TubeRipper.com].ogg"
+dest_files=["res://.godot/imported/Wood Floor Creak Sound Effect [TubeRipper.com].ogg-cbe0d34141ccb6732235c2ba6a22ad53.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
